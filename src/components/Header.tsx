@@ -11,7 +11,7 @@ export const Header = ({ credits }: HeaderProps) => {
   return (
     <header className="w-full py-6 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
       {/* Logo */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 justify-center md:justify-start w-full md:w-auto">
         <div className="relative">
           <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
           <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
@@ -27,7 +27,7 @@ export const Header = ({ credits }: HeaderProps) => {
       </div>
 
       {/* Credits Display */}
-      <div className="flex items-center gap-4 bg-dark-card border border-dark-border rounded-full px-6 py-2 shadow-lg">
+      <div className="flex items-center gap-4 bg-dark-card border border-dark-border rounded-full px-6 py-2 shadow-lg w-full md:w-auto justify-center">
         <span className="text-sm text-slate-400 font-medium">Créditos disponíveis:</span>
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold text-neon tabular-nums">
