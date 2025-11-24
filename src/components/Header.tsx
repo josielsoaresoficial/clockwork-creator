@@ -1,0 +1,43 @@
+import React from 'react';
+import {Gamepad2, ShoppingCart} from 'lucide-react';
+import { Button } from './ui/Button';
+
+interface HeaderProps {
+  credits: number;
+}
+
+export const Header = ({ credits }: HeaderProps) => {
+  return (
+    <header className="w-full py-6 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+      {/* Logo */}
+      <div className="flex items-center gap-3">
+        <div className="relative">
+          <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
+          <Gamepad2 className="w-10 h-10 text-neon relative z-10" />
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
+            Steam <span className="text-neon">Key Generator</span>
+          </h1>
+          <span className="text-[10px] text-slate-500 tracking-widest uppercase font-semibold">
+            Premium Access v2.4
+          </span>
+        </div>
+      </div>
+
+      {/* Credits Display */}
+      <div className="flex items-center gap-4 bg-dark-card border border-dark-border rounded-full px-6 py-2 shadow-lg">
+        <span className="text-sm text-slate-400 font-medium">Créditos disponíveis:</span>
+        <div className="flex items-center gap-2">
+          <span className="text-xl font-bold text-neon tabular-nums">
+            {credits.toLocaleString('pt-BR')}
+          </span>
+          <ShoppingCart className="w-4 h-4 text-neon" />
+        </div>
+        <Button size="sm" variant="ghost" className="h-6 w-6 p-0 rounded-full ml-2 text-slate-500 hover:text-white">
+          +
+        </Button>
+      </div>
+    </header>
+  );
+};
