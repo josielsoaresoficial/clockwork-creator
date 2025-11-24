@@ -1,7 +1,6 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react';
+import {Gamepad2, ShoppingCart} from 'lucide-react';
 import { Button } from './ui/Button';
-import steamLogo from '@/assets/steam-logo.png';
 
 interface HeaderProps {
   credits: number;
@@ -12,9 +11,9 @@ export const Header = ({ credits }: HeaderProps) => {
     <header className="w-full py-6 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
       {/* Logo */}
       <div className="flex items-center gap-3">
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 bg-neon blur-lg opacity-30 rounded-full"></div>
-          <img src={steamLogo} alt="Steam Logo" className="w-full h-full object-contain relative z-10" />
+        <div className="relative">
+          <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
+          <Gamepad2 className="w-10 h-10 text-neon relative z-10" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
