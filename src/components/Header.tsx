@@ -1,7 +1,7 @@
-import React from 'react';
 import {ShoppingCart} from 'lucide-react';
 import { Button } from './ui/Button';
 import steamLogo from '@/assets/steam-logo.png';
+import { Clock } from './Clock';
 
 interface HeaderProps {
   credits: number;
@@ -9,21 +9,24 @@ interface HeaderProps {
 
 export const Header = ({ credits }: HeaderProps) => {
   return (
-    <header className="w-full py-6 flex flex-col items-center justify-center md:justify-between gap-4 mb-8">
-      {/* Logo */}
-      <div className="flex items-center gap-3 justify-center w-full md:w-auto">
-        <div className="relative">
-          <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
-          <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
+    <header className="w-full py-6 flex flex-col items-center justify-center md:flex-row md:justify-between gap-4 mb-8">
+      {/* Logo and Clock */}
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 justify-center w-full md:w-auto">
+        <div className="flex items-center gap-3 justify-center">
+          <div className="relative">
+            <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
+            <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
+              Steam <span className="text-neon">Key Generator</span>
+            </h1>
+            <span className="text-[10px] text-slate-500 tracking-widest uppercase font-semibold">
+              Premium Access v2.4
+            </span>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
-            Steam <span className="text-neon">Key Generator</span>
-          </h1>
-          <span className="text-[10px] text-slate-500 tracking-widest uppercase font-semibold">
-            Premium Access v2.4
-          </span>
-        </div>
+        <Clock />
       </div>
 
       {/* Credits Display */}

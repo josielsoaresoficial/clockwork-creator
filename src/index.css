@@ -16,3 +16,45 @@
     box-shadow: 0 0 10px rgba(204, 255, 0, 0.2);
   }
 }
+
+/* Animated corner lights */
+@keyframes corner-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 40px 20px rgba(204, 255, 0, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 80px 40px rgba(204, 255, 0, 0.6);
+  }
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: corner-pulse 3s ease-in-out infinite;
+}
+
+body::before {
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(204, 255, 0, 0.15) 0%, transparent 70%);
+}
+
+body::after {
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(204, 255, 0, 0.15) 0%, transparent 70%);
+  animation-delay: 1.5s;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
