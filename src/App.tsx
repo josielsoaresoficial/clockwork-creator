@@ -170,8 +170,8 @@ function App() {
         <Header credits={credits} />
 
         {/* Control Area */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
-          <div className="flex-1">
+        <div className="flex flex-col items-center md:flex-row gap-4 mb-8">
+          <div className="w-full md:flex-1">
             <Input 
               placeholder="Pesquisar jogo..." 
               icon={<Search className="w-5 h-5" />}
@@ -180,7 +180,7 @@ function App() {
             />
           </div>
           <Button 
-            className="h-12 px-6"
+            className="h-12 px-6 w-full md:w-auto"
             onClick={() => setIsModalOpen(true)}
           >
             <Gamepad2 className="w-5 h-5 mr-2" />
@@ -189,7 +189,7 @@ function App() {
           
           <Button 
             variant="outline"
-            className="h-12 px-6 border-slate-700 hover:bg-slate-800 text-slate-300"
+            className="h-12 px-6 border-slate-700 hover:bg-slate-800 text-slate-300 w-full md:w-auto"
             onClick={handleExportData}
           >
             <Download className="w-5 h-5 mr-2" />
@@ -198,7 +198,7 @@ function App() {
 
           <Button 
             variant="outline"
-            className="h-12 px-6 border-slate-700 hover:bg-slate-800 text-slate-300"
+            className="h-12 px-6 border-slate-700 hover:bg-slate-800 text-slate-300 w-full md:w-auto"
             onClick={handleDownloadSource}
           >
             <FolderDown className="w-5 h-5 mr-2" />
@@ -209,7 +209,7 @@ function App() {
         {/* Listing Area */}
         <div className="bg-dark-card/50 border border-dark-border rounded-3xl p-6 shadow-2xl">
           {/* Filters */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+          <div className="flex flex-col items-center justify-center md:justify-between gap-6 mb-8">
             <div className="flex p-1 bg-dark-bg rounded-xl border border-dark-border">
               {(['all', 'available', 'used'] as const).map((tab) => (
                 <button

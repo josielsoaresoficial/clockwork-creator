@@ -9,9 +9,9 @@ interface HeaderProps {
 
 export const Header = ({ credits }: HeaderProps) => {
   return (
-    <header className="w-full py-6 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+    <header className="w-full py-6 flex flex-col items-center justify-center md:justify-between gap-4 mb-8">
       {/* Logo */}
-      <div className="flex items-center gap-3 justify-center md:justify-start w-full md:w-auto">
+      <div className="flex items-center gap-3 justify-center w-full md:w-auto">
         <div className="relative">
           <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
           <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
