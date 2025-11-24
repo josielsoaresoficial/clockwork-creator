@@ -9,16 +9,16 @@ interface HeaderProps {
 
 export const Header = ({ credits }: HeaderProps) => {
   return (
-    <header className="w-full py-6 flex flex-col items-center justify-center md:flex-row md:justify-between gap-6 mb-8 px-4">
+    <header className="w-full py-6 flex flex-col items-center gap-6 mb-8 px-4 md:flex-row md:justify-between">
       {/* Logo and Clock */}
-      <div className="flex flex-col items-center gap-4 w-full md:w-auto md:flex-row md:gap-6">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6 md:w-auto">
+        <div className="flex flex-col items-center gap-2 md:flex-row md:gap-3">
           <div className="relative">
             <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
             <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
+          <div className="flex flex-col items-center md:items-start">
+            <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none text-center md:text-left">
               Steam <span className="text-neon">Key Generator</span>
             </h1>
             <span className="text-[10px] text-slate-500 tracking-widest uppercase font-semibold">
