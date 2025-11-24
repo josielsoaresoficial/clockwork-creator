@@ -14,7 +14,7 @@ export const Header = ({ credits }: HeaderProps) => {
       <div className="flex items-center gap-3">
         <div className="relative">
           <div className="absolute inset-0 bg-neon blur-lg opacity-20 rounded-full"></div>
-          <img src={steamLogo} alt="Steam Logo" className="w-10 h-10 relative z-10" />
+          <img src={steamLogo} alt="Steam Logo" className="w-16 h-16 relative z-10" />
         </div>
         <div className="flex flex-col">
           <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">
