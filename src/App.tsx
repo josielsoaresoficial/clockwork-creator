@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import {Search, Gamepad2, Filter, Download, FolderDown} from 'lucide-react';
 import { Header } from './components/Header';
@@ -90,7 +90,7 @@ function App() {
       return g;
     }));
 
-    toast.success((t) => (
+    toast.success(() => (
       <div className="flex items-center gap-2">
         <span className="font-bold">Chave Gerada!</span>
         <span className="text-sm opacity-80">-{game.price} créditos</span>
