@@ -157,7 +157,13 @@ function App() {
   }, [games, search, filterTab]);
 
   return (
-    <div className="min-h-screen bg-dark-bg text-slate-200 p-4 md:p-8 font-sans selection:bg-neon selection:text-black">
+    <div className="min-h-screen bg-dark-bg text-slate-200 p-4 md:p-8 font-sans selection:bg-neon selection:text-black relative overflow-hidden">
+      {/* Corner Glows */}
+      <div className="fixed top-0 left-0 w-96 h-96 bg-neon/20 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+      <div className="fixed top-0 right-0 w-96 h-96 bg-neon/20 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+      <div className="fixed bottom-0 left-0 w-96 h-96 bg-neon/20 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
+      <div className="fixed bottom-0 right-0 w-96 h-96 bg-neon/20 rounded-full blur-[120px] pointer-events-none translate-x-1/2 translate-y-1/2" />
+      
       <Toaster position="bottom-right" />
       
       <div className="max-w-6xl mx-auto">
