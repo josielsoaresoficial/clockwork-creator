@@ -84,7 +84,7 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       className={cn(
-        "group relative grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 rounded-xl bg-dark-card border transition-all duration-300",
+        "group relative flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start md:items-center p-3 md:p-4 rounded-xl bg-dark-card border transition-all duration-300",
         isHovered ? "border-slate-600 bg-slate-800/50" : "border-dark-border",
         game.isRevealed ? "border-l-4 border-l-neon" : ""
       )}
@@ -92,7 +92,7 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Date */}
-      <div className="md:col-span-2 flex flex-col">
+      <div className="md:col-span-2 flex flex-col w-full md:w-auto">
         <span className="text-xs font-mono text-slate-500">{formatDate(game.date)}</span>
         <span className="text-[10px] text-slate-600 uppercase font-bold tracking-wider mt-1">
           ID: #{game.id.slice(0, 6)}
@@ -100,16 +100,16 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
       </div>
 
       {/* Game Info */}
-      <div className="md:col-span-5 flex items-center gap-4">
-        <div className={cn("relative w-16 h-24 rounded-lg overflow-hidden border-2 flex-shrink-0", rarityColor[game.rarity])}>
+      <div className="md:col-span-5 flex items-center gap-3 md:gap-4 w-full">
+        <div className={cn("relative w-14 h-20 md:w-16 md:h-24 rounded-lg overflow-hidden border-2 flex-shrink-0", rarityColor[game.rarity])}>
           <img src={game.imageUrl} alt={game.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         </div>
-        <div className="flex flex-col gap-1">
-          <h3 className="font-bold text-white group-hover:text-neon transition-colors truncate pr-4">
+        <div className="flex flex-col gap-1 min-w-0 flex-1">
+          <h3 className="font-bold text-sm md:text-base text-white group-hover:text-neon transition-colors truncate">
             {game.name}
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Badge variant={game.rarity}>{game.rarity}</Badge>
             <span className="text-xs text-slate-500 line-through">{game.originalPrice}</span>
           </div>
@@ -117,10 +117,10 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
       </div>
 
       {/* Key / Action Area */}
-      <div className="md:col-span-5 flex items-center justify-end gap-3">
+      <div className="md:col-span-5 flex items-center justify-stretch md:justify-end gap-2 md:gap-3 w-full">
         {game.isRevealed ? (
-          <div className="flex items-center gap-3 w-full justify-end animate-in fade-in slide-in-from-bottom-2">
-            <div className="flex-1 max-w-[240px] bg-black/40 rounded-lg border border-neon/30 px-4 py-2 font-mono text-neon text-center tracking-widest text-lg relative overflow-hidden group/key">
+          <div className="flex items-center gap-2 md:gap-3 w-full md:justify-end animate-in fade-in slide-in-from-bottom-2">
+            <div className="flex-1 md:flex-initial md:max-w-[240px] bg-black/40 rounded-lg border border-neon/30 px-3 md:px-4 py-2 font-mono text-neon text-center tracking-widest text-sm md:text-lg relative overflow-hidden group/key">
               {game.key}
               <div className="absolute inset-0 bg-neon/10 translate-x-[-100%] group-hover/key:translate-x-[100%] transition-transform duration-1000" />
             </div>
@@ -128,20 +128,20 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
               size="icon" 
               variant="outline" 
               onClick={handleCopy}
-              className={cn("transition-all", copied ? "text-green-400 border-green-400" : "")}
+              className={cn("transition-all shrink-0 h-10 w-10", copied ? "text-green-400 border-green-400" : "")}
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             </Button>
           </div>
         ) : (
           revealing ? (
-            <div className="flex items-center gap-3 w-full justify-end">
-              <div className="font-mono text-neon animate-pulse tracking-widest text-lg">
+            <div className="flex items-center gap-2 md:gap-3 w-full md:justify-end">
+              <div className="font-mono text-neon animate-pulse tracking-widest text-base md:text-lg w-full text-center md:text-left">
                 {displayKey}
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-4 w-full justify-end">
+            <div className="flex items-center gap-2 md:gap-4 w-full md:justify-end">
               <div className="hidden md:block flex-1 h-10 bg-slate-800/50 rounded-lg relative overflow-hidden">
                 <div className="absolute inset-0 backdrop-blur-md flex items-center justify-center gap-2">
                   <span className="text-slate-600 text-xs font-mono tracking-[0.2em]">••••-••••-••••</span>
@@ -150,7 +150,7 @@ export const GameRow = ({ game, onRedeem, canAfford }: GameRowProps) => {
               <Button 
                 onClick={handleRedeemClick}
                 disabled={!canAfford}
-                className={cn("min-w-[120px]", !canAfford && "opacity-50")}
+                className={cn("w-full md:w-auto md:min-w-[120px] h-10", !canAfford && "opacity-50")}
               >
                 {canAfford ? (
                   <>
