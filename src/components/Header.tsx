@@ -19,7 +19,7 @@ export const Header = ({ credits }: HeaderProps) => {
           </div>
           <div className="flex flex-col items-center md:items-start">
             <h1 className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none text-center md:text-left">
-              Steam <span className="text-neon">Key Generator</span>
+              Steam<br /><span className="text-neon">Key Generator</span>
             </h1>
             <span className="text-[10px] text-slate-500 tracking-widest uppercase font-semibold">
               Premium Access v2.4
